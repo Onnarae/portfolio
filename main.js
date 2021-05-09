@@ -12,6 +12,7 @@ $(window).on('load',function(){
     blobPath = $('#blob-path'),
 
     hamburger = $('.hamburger');
+    section = $('.section')
 
     $(this).on('mousemove', function(e){
         x = e.pageX;
@@ -20,12 +21,14 @@ $(window).on('load',function(){
 
     $('.hamburger, .menu-inner').on('mouseenter', function(){
         $(this).parent().addClass('expanded');
+        section.addClass('expanded');
         menuExpanded = true;
     });
 
     $('.menu-inner').on('mouseleave', function(){
         menuExpanded = false;
         $(this).parent().removeClass('expanded');
+        section.removeClass('expanded');
     });
 
     function easeOutExpo(currentIteration, startValue, changeInValue, totalIterations) {
@@ -79,3 +82,19 @@ $(window).on('load',function(){
     window.requestAnimationFrame(svgCurve);
     
 });
+
+function home_section_change(){
+    homesection = $('#home-section')
+    projectsection = $('#project-section')
+    
+    projectsection.addClass('hide');
+    homesection.removeClass('hide');
+}
+
+function project_section_change(){
+    homesection = $('#home-section')
+    projectsection = $('#project-section')
+
+    homesection.addClass('hide');
+    projectsection.removeClass('hide');
+}
